@@ -9,3 +9,4 @@ Implementation of a React components library based on [Browk UI KIT](https://www
 - [Sass](https://sass-lang.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Storybook](https://storybook.js.org/)
+- [Classnames](https://github.com/JedWatson/classnames)
