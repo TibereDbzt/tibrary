@@ -1,0 +1,152 @@
+@import "../../styles/core/variables"
+
+@keyframes rotating
+    from
+        transform: rotate(0deg)
+
+    to
+        transform: rotate(360deg)
+
+.button
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    gap: 4px
+    border-radius: 4px
+    background-color: transparent
+    border-width: 2px
+    border-style: solid
+    border-color: transparent
+    outline: none
+    cursor: pointer
+
+    .loadingIcon
+        animation: rotating 1s linear infinite
+
+    .labelText
+        color: inherit
+
+    // Types
+    &.primary.purple
+        color: $color-white
+        background-color: $color-purple
+        border-color: $color-purple
+
+    &.secondary.purple
+        color: $color-purple
+        background-color: transparent
+        border-color: $color-purple
+
+    &.primary.white
+        color: $color-purple
+        background-color: $color-white
+        border-color: $color-white
+
+    &.secondary.white
+        color: $color-white
+        background-color: transparent
+        border-color: $color-white
+
+    &.black
+        color: $color-black
+        background-color: $color-white
+        border-color: $color-black
+
+    &.flat.purple
+        color: $color-purple
+
+    &.flat.white
+        color: $color-white
+
+    &:not(.icon).label
+        padding: 12px 22px
+
+    &:not(.label).icon
+        padding: 8px
+
+    &.label.icon
+        padding: 8px 18px
+
+    &.icon.circled
+        border-radius: 50%
+
+    // States
+    &.disabled
+        opacity: 0.55
+        cursor: not-allowed
+
+    &.loading
+        cursor: progress
+
+    &:not(.disabled):not(.loading):hover
+
+        &.primary.purple
+            background-color: $color-purple-hover
+            border-color: $color-purple-hover
+
+        &.primary.white
+            background-color: $color-white-darker-3
+            border-color: $color-white-darker-3
+
+        &.secondary.purple
+            background-color: $color-white-darker-3
+
+        &.secondary.white
+            background-color: $color-white-opacity-12
+
+        &.flat.purple
+            background-color: $color-purple-opacity-4
+
+        &.flat.white
+            background-color: $color-white-opacity-12
+
+        &.black
+            background-color: $color-black-opacity-4
+
+
+    &:not(.disabled):not(.loading):active
+
+        &.primary.purple
+            background-color: $color-purple-active
+            border-color: $color-purple-active
+
+        &.primary.white
+            background-color: $color-white
+
+        &.secondary.purple
+            background-color: $color-purple-opacity-16
+
+        &.secondary.white
+            background-color: $color-white-opacity-16
+
+        &.flat.purple
+            background-color: $color-purple-opacity-16
+
+        &.flat.white
+            background-color: $color-white-opacity-16
+
+        &.black
+            background-color: $color-black-opacity-12
+
+    &:not(.disabled):not(.loading):not(:active):focus, &:not(.disabled):not(.loading):not(:active):focus-visible
+
+        &.primary.purple
+            border-color: $color-black-opacity-48
+
+        &.primary.white
+            border-color: $color-black-opacity-48
+
+        &.secondary.purple
+            border-color: $color-black-opacity-48
+
+        &.secondary.white
+            border-color: $color-black-opacity-48
+
+        &.flat.purple
+            border-color: $color-black-opacity-48
+
+        &.flat.white
+            border-color: $color-black-opacity-48
+
+        &.black
+            border-color: $color-black-opacity-48

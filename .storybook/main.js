@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     'stories': [
         '../stories/**/*.stories.mdx',
@@ -12,5 +14,13 @@ module.exports = {
     'framework': '@storybook/react',
     'core': {
         'builder': '@storybook/builder-webpack5',
+    },
+    webpackFinal: async (config, { configType }) => {
+        config.module.rules.push({
+            test: /\.sass$/,
+            use: ['style-loader', 'css-loader', 'sass-loader'],
+            include: path.resolve(__dirname, '../styles/'),
+        });
+        return config;
     },
 };
