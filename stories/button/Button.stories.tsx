@@ -2,11 +2,12 @@ import Button from "../../components/button/Button";
 import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {COLOR_NAMES} from "../../constants";
 import {AiOutlinePlus} from "react-icons/all";
+import {fireEvent, within} from "@testing-library/dom";
 
 export default {
     title: 'Button',
     component: Button,
-    parameters: { controls: { sort: 'requiredFirst' } },
+    parameters: {controls: {sort: 'requiredFirst'}},
     argTypes: {
         color: {
             control: 'inline-radio',
@@ -17,14 +18,14 @@ export default {
         },
         flat: {
             control: 'boolean',
-            if: { arg: 'primary', truthy: false },
+            if: {arg: 'primary', truthy: false},
         },
         label: {
             control: 'text',
         },
         circled: {
             control: 'boolean',
-            if: { arg: 'label', truthy: false },
+            if: {arg: 'label', truthy: false},
         },
         loading: {
             control: 'boolean',
@@ -59,7 +60,7 @@ export default {
         icon: undefined,
         iconTitle: undefined,
         onClick: () => console.log('Button Clicked'),
-    }
+    },
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
@@ -191,4 +192,16 @@ PrimaryLabelIconPurple.args = {
     label: 'Primary Label Icon Purple',
     icon: AiOutlinePlus,
     iconTitle: 'plus icon',
+}
+
+export const ButtonAction = Template.bind({});
+
+ButtonAction.args = {
+    color: COLOR_NAMES.PURPLE,
+    label: 'Button Action',
+}
+
+ButtonAction.play = async ({canvasElement}) => {
+    const canvas = within(canvasElement);
+    fireEvent.click(canvas.getByRole('button', {name: 'Button Action'}));
 }
