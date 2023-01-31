@@ -1,0 +1,58 @@
+@import "../../styles/core/variables"
+@import "../../styles/core/ui"
+
+.tag
+  display: inline-flex
+  align-items: center
+  gap: 4px
+  padding: 2px 8px
+  border-radius: 4px
+  border-width: 1px
+  border-style: solid
+  cursor: default
+
+  .labelText
+    color: inherit
+
+  // Sizes
+  &.small
+
+    .labelText
+      @include p-13-bold
+
+  &.medium
+
+    .labelText
+      @include p-16-regular
+
+  // Colors
+  &.purple
+    color: $color-white
+    background-color: $color-purple
+    border-color: $color-purple
+
+    .deleteButton
+      color: $color-white-opacity-88
+
+  &.white
+    @include shadow
+    color: $color-purple
+    background-color: $color-white
+    border-color: $color-grey
+
+  // States
+  &.overDeleteButton
+    cursor: pointer
+
+    &.purple
+      background-color: $color-purple-hover
+      border-color: $color-purple-hover
+
+      .deleteButton
+        color: $color-grey-darker-12
+
+    &.white
+      background-color: $color-grey
+
+      .deleteButton
+        color: $color-black
